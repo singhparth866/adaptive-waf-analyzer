@@ -1,0 +1,32 @@
+# WAF Fingerprinter & Bypass Analyzer — Configuration
+# All scanning must target only systems you are authorised to test.
+
+scan:
+  # Scan mode: passive | normal | aggressive
+  mode: normal
+
+  # HTTP behaviour
+  timeout: 10.0
+  max_retries: 3
+  concurrency: 10
+  rate_limit: 0.0       # requests/second — 0 = unlimited
+  verify_ssl: true
+
+  # Proxy (optional — e.g. route through Burp Suite)
+  # proxy: "http://127.0.0.1:8080"
+
+  # Output
+  output_format: json   # json | html | both
+  output_dir: ./reports
+
+  # Payload injection
+  inject_param: q
+  fingerprint_path: /
+
+  # Payload cap (0 = all)
+  max_payloads: 0
+
+  # Extra headers added to every request
+  extra_headers: {}
+    # X-Forwarded-For: "127.0.0.1"
+    # X-Real-IP: "127.0.0.1"
